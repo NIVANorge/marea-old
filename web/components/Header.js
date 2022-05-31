@@ -14,7 +14,7 @@ class Header extends Component {
     router: PropTypes.shape({
       pathname: PropTypes.string,
       query: PropTypes.shape({
-        slug: PropTypes.string,
+        slug: PropTypes.arrayOf(PropTypes.string),
       }),
       events: PropTypes.any,
     }),
@@ -22,7 +22,7 @@ class Header extends Component {
     navItems: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
-        slug: PropTypes.arrayOf(PropTypes.string),
+        slug: PropTypes.objectOf(PropTypes.string),
       })
     ),
     logo: PropTypes.shape({

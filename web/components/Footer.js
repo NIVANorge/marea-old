@@ -38,14 +38,14 @@ Footer.propTypes = {
   navItems: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      slug: PropTypes.arrayOf(PropTypes.string),
+      slug: PropTypes.objectOf(PropTypes.string),
     })
   ),
   text: PropTypes.arrayOf(PropTypes.object),
   router: PropTypes.shape({
     pathname: PropTypes.string,
     query: PropTypes.shape({
-      slug: PropTypes.string,
+      slug: PropTypes.arrayOf(PropTypes.string),
     }),
   }),
 }
