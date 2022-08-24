@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './ImageSection.module.css'
 import client from '../../client'
@@ -36,20 +35,6 @@ function ImageSection(props) {
       </figure>
     </div>
   )
-}
-
-ImageSection.propTypes = {
-  heading: PropTypes.string,
-  label: PropTypes.string,
-  text: PropTypes.array,
-  image: PropTypes.shape({
-    asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
-  }),
-  backgroundImage: PropTypes.string,
-  tagline: PropTypes.string,
-  cta: PropTypes.object,
 }
 
 export default ImageSection

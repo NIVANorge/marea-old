@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Head from 'next/head'
 
 import {LogoJsonLd} from 'next-seo'
@@ -30,22 +29,6 @@ function Layout(props) {
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node),
-  config: PropTypes.shape({
-    title: PropTypes.string,
-    mainNavigation: PropTypes.arrayOf(PropTypes.object),
-    footerNavigation: PropTypes.arrayOf(PropTypes.object),
-    footerText: PropTypes.arrayOf(PropTypes.object),
-    logo: PropTypes.shape({
-      asset: PropTypes.shape({
-        url: PropTypes.string,
-      }),
-    }),
-    url: PropTypes.string,
-  }),
 }
 
 export default Layout

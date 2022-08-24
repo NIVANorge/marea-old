@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './Figure.module.css'
 import client from '../client'
@@ -31,13 +30,4 @@ function Figure({value}) {
   )
 }
 
-Figure.propTypes = {
-  node: PropTypes.shape({
-    alt: PropTypes.string,
-    caption: PropTypes.string,
-    asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
-  }),
-}
 export default Figure

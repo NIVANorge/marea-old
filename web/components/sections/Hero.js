@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './Hero.module.css'
 import client from '../../client'
@@ -34,13 +33,6 @@ function Hero(props) {
       </div>
     </div>
   )
-}
-
-Hero.propTypes = {
-  heading: PropTypes.string,
-  backgroundImage: PropTypes.object,
-  tagline: PropTypes.array,
-  ctas: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default Hero

@@ -1,7 +1,6 @@
 import imageUrlBuilder from '@sanity/image-url'
 import groq from 'groq'
 import {NextSeo} from 'next-seo'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 import client from '../client'
@@ -127,16 +126,6 @@ const LandingPage = (props) => {
       {content && <RenderSections sections={content} />}
     </Layout>
   )
-}
-
-LandingPage.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  slug: PropTypes.string,
-  disallowRobots: PropTypes.bool,
-  openGraphImage: PropTypes.any,
-  content: PropTypes.any,
-  config: PropTypes.any,
 }
 
 export default LandingPage

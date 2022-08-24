@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react'
-import PropTypes from 'prop-types'
 import * as SectionComponents from './sections'
 import capitalizeString from '../utils/capitalizeString'
 
@@ -34,16 +33,6 @@ function RenderSections(props) {
       })}
     </Fragment>
   )
-}
-
-RenderSections.propTypes = {
-  sections: PropTypes.arrayOf(
-    PropTypes.shape({
-      _type: PropTypes.string,
-      _key: PropTypes.string,
-      section: PropTypes.instanceOf(PropTypes.object),
-    })
-  ),
 }
 
 export default RenderSections

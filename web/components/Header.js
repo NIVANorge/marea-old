@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import Link from 'next/link'
 import {withRouter} from 'next/router'
 import SVG from 'react-inlinesvg'
@@ -9,29 +8,6 @@ import {getPathFromSlug, slugParamToPath} from '../utils/urls'
 
 class Header extends Component {
   state = {showNav: false}
-
-  static propTypes = {
-    router: PropTypes.shape({
-      pathname: PropTypes.string,
-      query: PropTypes.shape({
-        slug: PropTypes.arrayOf(PropTypes.string),
-      }),
-      events: PropTypes.any,
-    }),
-    title: PropTypes.string,
-    navItems: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        slug: PropTypes.objectOf(PropTypes.string),
-      })
-    ),
-    logo: PropTypes.shape({
-      asset: PropTypes.shape({
-        url: PropTypes.string,
-      }),
-      logo: PropTypes.string,
-    }),
-  }
 
   componentDidMount() {
     const {router} = this.props

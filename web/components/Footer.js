@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'next/link'
 import {withRouter} from 'next/router'
 import styles from './Footer.module.css'
@@ -34,20 +33,5 @@ function Footer(props) {
   )
 }
 
-Footer.propTypes = {
-  navItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.objectOf(PropTypes.string),
-    })
-  ),
-  text: PropTypes.arrayOf(PropTypes.object),
-  router: PropTypes.shape({
-    pathname: PropTypes.string,
-    query: PropTypes.shape({
-      slug: PropTypes.arrayOf(PropTypes.string),
-    }),
-  }),
-}
 
 export default withRouter(Footer)
