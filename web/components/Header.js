@@ -5,7 +5,10 @@ import SVG from 'react-inlinesvg'
 import styles from './Header.module.css'
 import HamburgerIcon from './icons/Hamburger'
 import {getPathFromSlug, slugParamToPath} from '../utils/urls'
+import imageUrlBuilder from '@sanity/image-url'
+import client from '../client'
 
+const builder = imageUrlBuilder(client)
 class Header extends Component {
   state = {showNav: false}
 
@@ -36,22 +39,29 @@ class Header extends Component {
     }
 
     if (logo.asset.extension === 'svg') {
-      return <SVG src={logo.asset.url} className={styles.logo} />
+      return <SVG src={builder.image(logo.asset).auto('format').width(2000).url()} />
     }
 
-    return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />
+    return <img src={builder.image(logo.asset).auto('format').width(2000).url()} alt={logo.title} />
   }
 
   render() {
-    const {title = 'Missing title', navItems, router, logo} = this.props
+    const {title = 'Missing title', navItems, router, logos} = this.props
     const {showNav} = this.state
 
     return (
       <div className={styles.root} data-show-nav={showNav}>
-        <h1 className={styles.branding}>
-          <Link href={'/'}>
-            <a title={title}>{this.renderLogo(logo)}</a>
-          </Link>
+        <h1 className={styles.partners}>
+          <ul className={styles.logos}>
+            {logos &&
+              logos.map((logo) => (
+                <li key={logo._key} className={styles.logo}>
+                  <Link href={'/'}>
+                    <a title={title}>{this.renderLogo(logo)}</a>
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </h1>
         <nav className={styles.nav}>
           <ul className={styles.navItems}>
