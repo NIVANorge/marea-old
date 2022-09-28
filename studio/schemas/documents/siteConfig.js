@@ -37,7 +37,7 @@ export default {
       title: 'Partner logos',
       name: 'logos',
       type: 'array',
-      of: [{ type: 'image' }],
+      of: [{ type: 'logo' }, { type: 'image' }],
     },
     {
       title: 'Main navigation',
@@ -68,6 +68,17 @@ export default {
         {
           type: 'reference',
           to: [{ type: 'route' }],
+        },
+      ],
+    },
+    {
+      name: 'footerSocialLinks',
+      title: 'Footer Social Links',
+      type: 'array',
+      fieldset: 'footer',
+      of: [
+        {
+          type: 'logo',
         },
       ],
     },

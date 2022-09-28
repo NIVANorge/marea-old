@@ -56,7 +56,7 @@ class Header extends Component {
             {logos &&
               logos.map((logo) => (
                 <li key={logo._key} className={styles.logo}>
-                  <Link href={'/'}>
+                  <Link href={logo.logoHyperlinkUrl || '/'}>
                     <a title={title}>{this.renderLogo(logo)}</a>
                   </Link>
                 </li>

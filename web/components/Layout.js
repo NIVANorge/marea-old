@@ -11,7 +11,8 @@ function Layout(props) {
     return <div>Missing config</div>
   }
 
-  const {title, mainNavigation, footerNavigation, footerText, logos, url} = config
+  const {title, mainNavigation, footerNavigation, footerSocialLinks, footerText, logos, url} =
+    config
 
   return (
     <>
@@ -21,7 +22,7 @@ function Layout(props) {
       <div className="container">
         <Header title={title} navItems={mainNavigation} logos={logos} />
         <div className="content">{children}</div>
-        <Footer navItems={footerNavigation} text={footerText} />
+        <Footer social={footerSocialLinks} navItems={footerNavigation} text={footerText} />
       </div>
     </>
   )
