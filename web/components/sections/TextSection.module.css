@@ -1,14 +1,15 @@
-@import "../../styles/custom-media.css";
+@import '../../styles/custom-media.css';
 
 .root {
-  padding: 2rem 0;
+  padding: 1rem 0;
 
   @media (--media-min-medium) {
-    padding: 4rem 0;
+    padding: 1rem 0;
   }
 }
 
 .article {
+  font-size: var(--font-title3-size);
   width: 100%;
   max-width: var(--width-small);
   margin: 0 auto;
