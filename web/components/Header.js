@@ -56,7 +56,7 @@ class Header extends Component {
             {logos &&
               logos.map((logo) => (
                 <li key={logo._key} className={styles.logo}>
-                  <Link href={logo.logoHyperlinkUrl || '/'}>
+                  <Link legacyBehavior href={logo.logoHyperlinkUrl || '/'}>
                     <a title={title}>{this.renderLogo(logo)}</a>
                   </Link>
                 </li>
@@ -71,7 +71,7 @@ class Header extends Component {
                 const isActive = slugParamToPath(router.query.slug) === slug.current
                 return (
                   <li key={_id} className={styles.navItem}>
-                    <Link href={getPathFromSlug(slug.current)}>
+                    <Link legacyBehavior href={getPathFromSlug(slug.current)}>
                       <a data-is-active={isActive ? 'true' : 'false'} aria-current={isActive}>
                         {title}
                       </a>

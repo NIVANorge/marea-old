@@ -37,7 +37,7 @@ function Footer(props) {
               const isActive = slugParamToPath(router.query.slug) === item.slug.current
               return (
                 <li key={item._id} className={styles.item}>
-                  <Link href={getPathFromSlug(item.slug.current)}>
+                  <Link legacyBehavior href={getPathFromSlug(item.slug.current)}>
                     <a data-is-active={isActive ? 'true' : 'false'} aria-current={isActive}>
                       {item.title}
                     </a>
@@ -52,7 +52,7 @@ function Footer(props) {
           {social &&
             social.map((logo) => (
               <li key={logo._key} className={styles.logo}>
-                <Link href={logo.logoHyperlinkUrl || '/'}>
+                <Link legacyBehavior href={logo.logoHyperlinkUrl || '/'}>
                   <a title={logo.caption}>{renderLogo(logo)}</a>
                 </Link>
               </li>

@@ -13,8 +13,9 @@ function cta(props) {
           query: {slug: route.slug.current},
         }}
         as={`/${route.slug.current}`}
+        className={styles.button}
       >
-        <a className={styles.button}>{title}</a>
+        {title}
       </Link>
     )
   }

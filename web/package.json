@@ -10,18 +10,18 @@
     "start": "next start"
   },
   "dependencies": {
-    "@portabletext/react": "^1.0.2",
-    "@sanity/client": "^3.0.3",
+    "@portabletext/react": "^2.0.0",
+    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
-    "groq": "^2.15.0",
-    "next": "^12.0.9",
-    "next-seo": "^5.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-inlinesvg": "^2.3.0"
+    "groq": "^2.33.2",
+    "next": "^13.0.6",
+    "next-seo": "^5.15.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-inlinesvg": "^3.0.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.2.4",
+    "@netlify/plugin-nextjs": "^4.29.3",
     "cssnano": "^5.0.16",
     "postcss": "^8.4.6",
     "postcss-import": "^14.0.2",
