@@ -1,8 +1,8 @@
 @import '../../styles/custom-media.css';
 
 .root {
+  composes: center from '../../styles/shared.module.css';
   padding: 1rem 0;
-
   @media (--media-min-medium) {
     padding: 1rem 0;
   }

@@ -3,6 +3,7 @@ import bcp47 from 'bcp47'
 export default {
   name: 'site-config',
   type: 'document',
+  i18n: true,
   title: 'Site configuration',
   // https://www.sanity.io/docs/experimental/ui-affordances-for-actions
   __experimental_actions: [/* "create", "delete", */ 'update', 'publish'],

@@ -3,6 +3,7 @@ import { MasterDetailIcon } from '@sanity/icons'
 export default {
   name: 'page',
   type: 'document',
+  i18n: true,
   title: 'Page',
   icon: MasterDetailIcon,
   fieldsets: [
@@ -21,11 +22,7 @@ export default {
       name: 'content',
       type: 'array',
       title: 'Page sections',
-      of: [
-        { type: 'hero' },
-        { type: 'imageSection' },
-        { type: 'textSection' },
-      ],
+      of: [{ type: 'hero' }, { type: 'imageSection' }, { type: 'textSection' }],
     },
     {
       name: 'description',
