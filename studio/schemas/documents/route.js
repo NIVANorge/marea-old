@@ -3,6 +3,7 @@ import { LinkIcon } from '@sanity/icons'
 export default {
   name: 'route',
   type: 'document',
+  i18n: true,
   title: 'Route',
   icon: LinkIcon,
   fields: [

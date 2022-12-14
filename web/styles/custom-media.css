@@ -1,11 +1,5 @@
-@custom-media --media-max-small (max-width: 614px);
-@custom-media --media-min-small (min-width: 615px);
+@custom-media --media-max-small (max-width: 960px);
+@custom-media --media-min-small (min-width: 961px);
 
-@custom-media --media-max-medium (max-width: 1160px);
-@custom-media --media-min-medium (min-width: 1161px);
-
-@custom-media --media-max-large (max-width: 899px);
-@custom-media --media-min-large (min-width: 900px);
-
-@custom-media --media-max-x-large (max-width: 1349px);
-@custom-media --media-min-x-large (min-width: 1350px);
+@custom-media --media-max-medium (max-width: 1590px);
+@custom-media --media-min-medium (min-width: 1591px);
