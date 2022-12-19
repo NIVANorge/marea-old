@@ -29,16 +29,24 @@ content[] {
  * for every page requested - /, /about, /contact, etc..
  * From the received params.slug, we're able to query Sanity for the route coresponding to the currently requested path.
  */
-export const getServerSideProps = async ({params}) => {
+export const getServerSideProps = async ({locale, params}) => {
+  console.log('locale', locale)
   const slug = slugParamToPath(params?.slug)
-
   let data
 
   // Frontpage - fetch the linked `frontpage` from the global configuration document.
-  if (slug === '/') {
+  if (slug === '/' || slug === '/hjem') {
     data = await client
       .fetch(
-        groq`
+        locale === 'no'
+          ? groq`
+        *[_id == "global-config__i18n_no"][0]{
+          frontpage -> {
+            ${pageFragment}
+          }
+        }
+      `
+          : groq`
         *[_id == "global-config"][0]{
           frontpage -> {
             ${pageFragment}
