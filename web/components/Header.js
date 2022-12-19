@@ -79,6 +79,19 @@ class Header extends Component {
                   </li>
                 )
               })}
+            <li className={styles.navItem}>
+              <a
+                style={{cursor: 'pointer'}}
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push(router.asPath, undefined, {
+                    locale: router.locale === 'no' ? 'en' : 'no',
+                  })
+                }}
+              >
+                {router.locale === 'no' ? '🇬🇧' : '🇳🇴'}
+              </a>
+            </li>
           </ul>
           <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
             <HamburgerIcon className={styles.hamburgerIcon} />
