@@ -71,7 +71,14 @@ class Header extends Component {
                 const isActive = slugParamToPath(router.query.slug) === slug.current
                 return (
                   <li key={_id} className={styles.navItem}>
-                    <Link legacyBehavior href={getPathFromSlug(slug.current)}>
+                    <Link
+                      legacyBehavior
+                      href={
+                        slug.current === 'home' || slug.current === 'hjem'
+                          ? '/'
+                          : getPathFromSlug(slug.current)
+                      }
+                    >
                       <a data-is-active={isActive ? 'true' : 'false'} aria-current={isActive}>
                         {title}
                       </a>

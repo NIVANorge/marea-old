@@ -34,7 +34,7 @@ export const getServerSideProps = async ({locale, params}) => {
   let data
 
   // Frontpage - fetch the linked `frontpage` from the global configuration document.
-  if (slug === '/' || slug === '/hjem') {
+  if (slug === '/') {
     data = await client
       .fetch(
         locale === 'no'
