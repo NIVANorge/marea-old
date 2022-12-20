@@ -87,7 +87,7 @@ class Header extends Component {
                 )
               })}
             <li className={styles.navItem}>
-              <a
+              <span
                 style={{cursor: 'pointer'}}
                 onClick={(e) => {
                   e.preventDefault()
@@ -97,7 +97,7 @@ class Header extends Component {
                 }}
               >
                 {router.locale === 'no' ? '🇬🇧' : '🇳🇴'}
-              </a>
+              </span>
             </li>
           </ul>
           <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
