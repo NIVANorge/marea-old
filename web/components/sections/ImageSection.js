@@ -24,12 +24,10 @@ function ImageSection(props) {
         />
         <figcaption>
           <div className={styles.caption}>
-            <div className={styles.captionBox}>
-              <div className={styles.label}>{label}</div>
-              <h2 className={styles.title}>{heading}</h2>
-              {text && <SimpleBlockContent blocks={text} />}
-              {cta && cta.route && <Cta {...cta} />}
-            </div>
+            <div className={styles.label}>{label}</div>
+            <h2 className={styles.title}>{heading}</h2>
+            {text && <SimpleBlockContent blocks={text} />}
+            {cta && cta.route && <Cta {...cta} />}
           </div>
         </figcaption>
       </figure>
