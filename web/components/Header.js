@@ -88,7 +88,7 @@ class Header extends Component {
               })}
             <li className={styles.navItem}>
               <span
-                style={{cursor: 'pointer', display: 'none'}}
+                style={{cursor: 'pointer'}}
                 onClick={(e) => {
                   e.preventDefault()
                   router.push(router.asPath, undefined, {
