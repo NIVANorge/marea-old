@@ -20,7 +20,7 @@ function ImageSection(props) {
         <img
           src={builder.image(image).auto('format').width(2000).url()}
           className={styles.image}
-          alt={heading}
+          alt={image.alt}
         />
         <figcaption>
           <div className={styles.caption}>
