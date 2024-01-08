@@ -6,7 +6,7 @@
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
     "build": "sanity build",
-    "dev": "sanity start",
+    "dev": "npx sanity dev",
     "test": "sanity check"
   },
   "dependencies": {
