@@ -7,7 +7,7 @@ export default {
   title: 'Site configuration',
   // https://www.sanity.io/docs/experimental/ui-affordances-for-actions
   __experimental_actions: [/* "create", "delete", */ 'update', 'publish'],
-  fieldsets: [{ name: 'footer', title: 'Footer' }],
+  fieldsets: [{name: 'footer', title: 'Footer'}],
   fields: [
     {
       name: 'title',
@@ -24,7 +24,7 @@ export default {
       name: 'frontpage',
       type: 'reference',
       description: 'Choose page to be the frontpage',
-      to: { type: 'page' },
+      to: {type: 'page'},
     },
     {
       title: 'Site language',
@@ -38,7 +38,7 @@ export default {
       title: 'Partner logos',
       name: 'logos',
       type: 'array',
-      of: [{ type: 'logo' }, { type: 'image' }],
+      of: [{type: 'logo'}, {type: 'image'}],
     },
     {
       title: 'Main navigation',
@@ -52,7 +52,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'route' }],
+          to: [{type: 'route'}],
         },
       ],
     },
@@ -68,7 +68,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'route' }],
+          to: [{type: 'route'}],
         },
       ],
     },
