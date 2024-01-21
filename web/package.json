@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-nextjs-landing-pages-web",
+  "name": "web",
   "version": "1.0.12",
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
