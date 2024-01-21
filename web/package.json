@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "format": "prettier --write \"**/*.js\" \"!.next/**\" \"!node_modules/**\" \"!out/**\"",
     "start": "next start"
   },
   "dependencies": {
