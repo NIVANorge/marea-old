@@ -12,7 +12,7 @@
     "clean:deps": "npx rimraf --glob **/node_modules"
   },
   "devDependencies": {
-    "@sanity/cli": "^3.0.6",
+    "@sanity/cli": "^3.25.0",
     "rimraf": "^5.0.5"
   }
 }
