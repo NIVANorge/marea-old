@@ -51,7 +51,7 @@ export const getServerSideProps = async ({locale, params}) => {
             ${pageFragment}
           }
         }
-      `
+      `,
       )
       .then((res) => (res?.frontpage ? {...res.frontpage, slug} : undefined))
   } else {
@@ -64,7 +64,7 @@ export const getServerSideProps = async ({locale, params}) => {
             ${pageFragment}
           }
         }`,
-        {possibleSlugs: getSlugVariations(slug)}
+        {possibleSlugs: getSlugVariations(slug)},
       )
       .then((res) => (res?.page ? {...res.page, slug} : undefined))
   }

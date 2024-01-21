@@ -6,7 +6,7 @@ export default {
     //     templateRepoId: 'sanity-io/sanity-template-nextjs-landing-pages'
     //   }
     // },
-    { name: 'structure-menu' },
+    {name: 'structure-menu'},
     {
       name: 'project-info',
       options: {
@@ -21,33 +21,33 @@ export default {
                   buildHookId: '6294abfc0bc61820497d9f91',
                   title: 'Sanity Studio',
                   name: 'marea-studio',
-                  apiId: 'd6a22bf5-80b4-4481-8f3b-bafea2dbb703'
+                  apiId: 'd6a22bf5-80b4-4481-8f3b-bafea2dbb703',
                 },
                 {
                   buildHookId: '6294abfdf27d90236736d478',
                   title: 'Landing pages Website',
                   name: 'marea-web',
-                  apiId: '493243a8-73b0-409e-b6c8-c022a198b998'
-                }
-              ]
-            }
-          }
+                  apiId: '493243a8-73b0-409e-b6c8-c022a198b998',
+                },
+              ],
+            },
+          },
         ],
         data: [
           {
             title: 'GitHub repo',
             value: 'https://github.com/jemmima/marea',
-            category: 'Code'
+            category: 'Code',
           },
-          { title: 'Frontend', value: 'https://marea-web.netlify.app', category: 'apps' }
-        ]
-      }
+          {title: 'Frontend', value: 'https://marea-web.netlify.app', category: 'apps'},
+        ],
+      },
     },
     {
       name: 'document-list',
-      options: { title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['page'] },
-      layout: { width: 'medium' }
+      options: {title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['page']},
+      layout: {width: 'medium'},
     },
-    { name: 'project-users', layout: { height: 'auto' } }
-  ]
+    {name: 'project-users', layout: {height: 'auto'}},
+  ],
 }

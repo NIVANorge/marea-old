@@ -1,7 +1,7 @@
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
-import { schemaTypes } from './schemas/schema'
-import { withDocumentI18nPlugin } from '@sanity/document-internationalization'
+import {defineConfig} from 'sanity'
+import {deskTool} from 'sanity/desk'
+import {schemaTypes} from './schemas/schema'
+import {withDocumentI18nPlugin} from '@sanity/document-internationalization'
 
 export default defineConfig({
   name: 'marea',
@@ -11,8 +11,8 @@ export default defineConfig({
 
   plugins: withDocumentI18nPlugin([], {
     languages: [
-      { id: 'en', title: 'English' },
-      { id: 'no', title: 'Norwegian' },
+      {id: 'en', title: 'English'},
+      {id: 'no', title: 'Norwegian'},
     ],
   }),
   schema: {

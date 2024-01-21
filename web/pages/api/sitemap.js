@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     <url>
       <loc>${slugToAbsUrl(slug, baseUrl)}</loc>
     </url>
-    `
+    `,
       )
       .join('\n')}
   </urlset>`
