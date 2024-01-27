@@ -41,8 +41,13 @@ class Header extends Component {
     if (logo.asset.extension === 'svg') {
       return <SVG src={builder.image(logo.asset).auto('format').width(2000).url()} />
     }
-
-    return <img src={builder.image(logo.asset).auto('format').width(2000).url()} alt={logo.title} />
+    return (
+      <img
+        src={builder.image(logo.asset).auto('format').width(2000).url()}
+        alt={logo.alt}
+        title={logo.caption}
+      />
+    )
   }
 
   render() {
