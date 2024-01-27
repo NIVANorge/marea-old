@@ -68,6 +68,9 @@ importers:
       '@sanity/image-url':
         specifier: ^1.0.2
         version: 1.0.2
+      follow-redirects:
+        specifier: ^1.15.5
+        version: 1.15.5(debug@4.3.4)
       groq:
         specifier: ^3.25.0
         version: 3.25.0
