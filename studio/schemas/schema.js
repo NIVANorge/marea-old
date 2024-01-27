@@ -16,6 +16,7 @@ import logo from './objects/logo'
 // Landing page sections
 import hero from './objects/hero'
 import imageSection from './objects/imageSection'
+import carouselSection from './objects/carouselSection'
 import textSection from './objects/textSection'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -26,6 +27,7 @@ export const schemaTypes = [
   figure,
   hero,
   imageSection,
+  carouselSection,
   internalLink,
   link,
   page,

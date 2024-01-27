@@ -17,7 +17,8 @@
     "next-seo": "^6.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-inlinesvg": "^4.1.0"
+    "react-inlinesvg": "^4.1.0",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "cssnano": "^6.0.3",
