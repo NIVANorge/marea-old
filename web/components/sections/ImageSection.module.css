@@ -72,3 +72,27 @@
     max-width: calc((var(--width-small) / 2) - 3rem);
   }
 }
+
+.expandedImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  z-index: 9999;
+}
+
+.hidden {
+  display: none;
+}
+
+.imageOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 9998; /* Below the image */
+}

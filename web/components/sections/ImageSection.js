@@ -9,6 +9,7 @@ const builder = imageUrlBuilder(client)
 
 function ImageSection(props) {
   const {heading, label, text, image, cta} = props
+  const [expanded, setExpanded] = React.useState(false)
 
   if (!image) {
     return null
@@ -19,9 +20,14 @@ function ImageSection(props) {
       <figure className={styles.content}>
         <img
           src={builder.image(image).auto('format').width(2000).url()}
-          className={styles.image}
+          className={expanded ? styles.expandedImage : styles.image}
           alt={image.alt}
+          onClick={(_e) => setExpanded(!expanded)}
         />
+        <div
+          className={expanded ? styles.imageOverlay : styles.hidden}
+          onClick={(_e) => setExpanded(!expanded)}
+        ></div>
         <figcaption>
           <div className={styles.caption}>
             <div className={styles.label}>{label}</div>
