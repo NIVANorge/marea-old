@@ -1,7 +1,10 @@
 import React from 'react'
 
-function EmbedHTML({node}) {
-  const {html} = node
+function EmbedHTML({value}) {
+  if (!value) {
+    return <div />
+  }
+  const {html} = value
   if (!html) {
     return undefined
   }
