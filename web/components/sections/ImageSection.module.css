@@ -4,7 +4,8 @@
   position: relative;
   padding: 2rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 25vw;
 
   @media (--media-min-medium) {
     padding: 4rem 0;
@@ -31,23 +32,23 @@
 .image {
   display: block;
   width: 100%;
+  max-width: var(--width-small);
 }
 
 .content {
   position: relative;
-  margin: 0 1.5rem;
+
   max-width: var(--width-medium);
 
-   & figcaption {
+  & figcaption {
     width: 100%;
     box-sizing: border-box;
   }
 
   @media (--media-min-medium) {
-    margin: 0 auto;
     padding-top: 2rem;
 
-     & figcaption {
+    & figcaption {
       position: absolute;
       top: 0;
     }

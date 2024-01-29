@@ -1,8 +1,8 @@
-@import "./custom-media.css";
+@import './custom-media.css';
 
 .center {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-content: left;
   align-items: flex-start;
 }
 
