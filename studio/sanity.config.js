@@ -9,7 +9,7 @@ export default defineConfig({
   projectId: 'w9ghqav9',
   dataset: 'production',
 
-  plugins: withDocumentI18nPlugin([visionTool()], {
+  plugins: withDocumentI18nPlugin([], {
     languages: [
       {id: 'en', title: 'English'},
       {id: 'no', title: 'Norwegian'},
