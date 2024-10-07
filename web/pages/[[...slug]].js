@@ -37,36 +37,27 @@ export const getServerSideProps = async ({locale, params}) => {
   if (slug === '/') {
     data = await client
       .fetch(
-        locale === 'no'
-          ? groq`
-        *[_id == "global-config__i18n_no"][0]{
+        groq`*[_id == "global-config__i18n_${locale}"][0]{
           frontpage -> {
             ${pageFragment}
           }
-        }
-      `
-          : groq`
-        *[_id == "global-config"][0]{
-          frontpage -> {
-            ${pageFragment}
-          }
-        }
-      `,
+        }`
       )
-      .then((res) => (res?.frontpage ? {...res.frontpage, slug} : undefined))
+      .then((res) => (res?.frontpage ? { ...res.frontpage, slug } : undefined));
   } else {
-    // Regular route
+    // Regular route: fetch the document for the current locale
     data = await client
       .fetch(
-        // Get the route document with one of the possible slugs for the given requested path
-        groq`*[_type == "route" && slug.current in $possibleSlugs][0]{
-          page-> {
-            ${pageFragment}
+        groq`
+          *[_type == "route" && slug.current == $slug && __i18n_lang == $locale][0]{
+            page-> {
+              ${pageFragment}
+            }
           }
-        }`,
-        {possibleSlugs: getSlugVariations(slug)},
+        `,
+        { slug, locale }
       )
-      .then((res) => (res?.page ? {...res.page, slug} : undefined))
+      .then((res) => (res?.page ? { ...res.page, slug } : undefined));
   }
 
   if (!data?._type === 'page') {

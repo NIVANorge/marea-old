@@ -1,45 +1,46 @@
-import React, {Component} from 'react'
-import Link from 'next/link'
-import {withRouter} from 'next/router'
-import SVG from 'react-inlinesvg'
-import styles from './Header.module.css'
-import HamburgerIcon from './icons/Hamburger'
-import {getPathFromSlug, slugParamToPath} from '../utils/urls'
-import imageUrlBuilder from '@sanity/image-url'
-import client from '../client'
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { withRouter } from 'next/router';
+import SVG from 'react-inlinesvg';
+import styles from './Header.module.css';
+import HamburgerIcon from './icons/Hamburger';
+import { getLocalizedPath, slugParamToPath } from '../utils/urls';
+import imageUrlBuilder from '@sanity/image-url';
+import client from '../client';
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
+
 class Header extends Component {
-  state = {showNav: false}
+  state = { showNav: false };
 
   componentDidMount() {
-    const {router} = this.props
-    router.events.on('routeChangeComplete', this.hideMenu)
+    const { router } = this.props;
+    router.events.on('routeChangeComplete', this.hideMenu);
   }
 
   componentWillUnmount() {
-    const {router} = this.props
-    router.events.off('routeChangeComplete', this.hideMenu)
+    const { router } = this.props;
+    router.events.off('routeChangeComplete', this.hideMenu);
   }
 
   hideMenu = () => {
-    this.setState({showNav: false})
-  }
+    this.setState({ showNav: false });
+  };
 
   handleMenuToggle = () => {
-    const {showNav} = this.state
+    const { showNav } = this.state;
     this.setState({
       showNav: !showNav,
-    })
-  }
+    });
+  };
 
   renderLogo = (logo) => {
     if (!logo || !logo.asset) {
-      return null
+      return null;
     }
 
     if (logo.asset.extension === 'svg') {
-      return <SVG src={builder.image(logo.asset).auto('format').width(2000).url()} />
+      return <SVG src={builder.image(logo.asset).auto('format').width(2000).url()} />;
     }
     return (
       <img
@@ -47,13 +48,14 @@ class Header extends Component {
         alt={logo.alt}
         title={logo.caption}
       />
-    )
-  }
+    );
+  };
 
   render() {
-    const {title = 'Missing title', navItems, router, logos} = this.props
-    const {showNav} = this.state
-
+    const { title = 'Missing title', navItems, router, logos } = this.props;
+    const { showNav } = this.state;
+    const { locale } = router; // Get the current locale from the router
+    //console.log(JSON.stringify(this.props, null, 2))
     return (
       <div className={styles.root} data-show-nav={showNav}>
         <h1 className={styles.partners}>
@@ -72,36 +74,40 @@ class Header extends Component {
           <ul className={styles.navItems}>
             {navItems &&
               navItems.map((item) => {
-                const {slug, title, _id} = item
-                const isActive = slugParamToPath(router.query.slug) === slug.current
+                const { slug, title, _id } = item;
+                // Generate the localized path using the slug and current locale
+                const localizedPath = slug.current === 'home' || slug.current === 'hjem' ? '/' : getLocalizedPath(slug.current, locale);
+
+                // Determine if the current route matches the nav item
+                const isActive = slugParamToPath(router.query.slug) === slug.current;
+
                 return (
                   <li key={_id} className={styles.navItem}>
-                    <Link
-                      legacyBehavior
-                      href={
-                        slug.current === 'home' || slug.current === 'hjem'
-                          ? '/'
-                          : getPathFromSlug(slug.current)
-                      }
-                    >
-                      <a data-is-active={isActive ? 'true' : 'false'} aria-current={isActive}>
+                    <Link legacyBehavior href={localizedPath}>
+                      <a data-is-active={isActive ? 'true' : 'false'} aria-current={isActive ? 'page' : undefined}>
                         {title}
                       </a>
                     </Link>
                   </li>
-                )
+                );
               })}
             <li className={styles.navItem}>
+              {/* Language switcher button */}
               <span
-                style={{cursor: 'pointer'}}
+                style={{ cursor: 'pointer' }}
                 onClick={(e) => {
-                  e.preventDefault()
-                  router.push(router.asPath, undefined, {
-                    locale: router.locale === 'no' ? 'en' : 'no',
-                  })
+                  e.preventDefault();
+                  // Determine the other language
+                  const nextLocale = locale === 'no' ? 'en' : 'no';
+                  const nextPath = navItems.find((item) => item.slug.current === router.asPath.substring(1));
+                  console.log(router.asPath.substring(1))
+                  console.log(JSON.stringify(navItems, null, 2))
+                  console.log(nextPath)
+                  // Preserve the current path but switch the locale
+                  router.push(nextPath ? nextPath.otherSlug : '/', undefined, { locale: nextLocale });
                 }}
               >
-                {router.locale === 'no' ? '🇬🇧' : '🇳🇴'}
+                {locale === 'no' ? '🇬🇧' : '🇳🇴'}
               </span>
             </li>
           </ul>
@@ -110,8 +116,8 @@ class Header extends Component {
           </button>
         </nav>
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(Header)
+export default withRouter(Header);

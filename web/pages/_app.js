@@ -11,7 +11,8 @@ const noSiteConfigQuery = `
   logo {asset->{extension, url}},
   mainNavigation[] -> {
     ...,
-    "title": page->title
+    "title": page->title,
+    "otherSlug": __i18n_base->slug.current
   },
   footerNavigation[] -> {
     ...,
@@ -25,7 +26,8 @@ const baseSiteConfigQuery = `
     logo {asset->{extension, url}},
     mainNavigation[] -> {
       ...,
-      "title": page->title
+      "title": page->title,
+      "otherSlug": __i18n_refs[0]->slug.current
     },
     footerNavigation[] -> {
       ...,

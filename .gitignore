@@ -7,3 +7,5 @@
 .history
 .vscode
 .sanity/
+.vercel
+.env*.local
