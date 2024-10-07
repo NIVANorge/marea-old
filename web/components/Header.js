@@ -55,7 +55,7 @@ class Header extends Component {
     const { title = 'Missing title', navItems, router, logos } = this.props;
     const { showNav } = this.state;
     const { locale } = router; // Get the current locale from the router
-    //console.log(JSON.stringify(this.props, null, 2))
+
     return (
       <div className={styles.root} data-show-nav={showNav}>
         <h1 className={styles.partners}>
@@ -76,7 +76,7 @@ class Header extends Component {
               navItems.map((item) => {
                 const { slug, title, _id } = item;
                 // Generate the localized path using the slug and current locale
-                const localizedPath = slug.current === 'home' || slug.current === 'hjem' ? '/' : getLocalizedPath(slug.current, locale);
+                const localizedPath = slug.current === 'home' || slug.current === 'hjem' ? `/${locale}` : getLocalizedPath(slug.current, locale);
 
                 // Determine if the current route matches the nav item
                 const isActive = slugParamToPath(router.query.slug) === slug.current;
@@ -100,11 +100,8 @@ class Header extends Component {
                   // Determine the other language
                   const nextLocale = locale === 'no' ? 'en' : 'no';
                   const nextPath = navItems.find((item) => item.slug.current === router.asPath.substring(1));
-                  console.log(router.asPath.substring(1))
-                  console.log(JSON.stringify(navItems, null, 2))
-                  console.log(nextPath)
                   // Preserve the current path but switch the locale
-                  router.push(nextPath ? nextPath.otherSlug : '/', undefined, { locale: nextLocale });
+                  router.push(nextPath ? nextPath.otherSlug : `/${nextLocale}`, undefined, { locale: nextLocale });
                 }}
               >
                 {locale === 'no' ? '🇬🇧' : '🇳🇴'}

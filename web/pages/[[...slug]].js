@@ -37,11 +37,21 @@ export const getServerSideProps = async ({locale, params}) => {
   if (slug === '/') {
     data = await client
       .fetch(
-        groq`*[_id == "global-config__i18n_${locale}"][0]{
-          frontpage -> {
-            ${pageFragment}
-          }
-        }`
+        locale === 'no'
+        ? groq`
+      *[_id == "global-config__i18n_no"][0]{
+        frontpage -> {
+          ${pageFragment}
+        }
+      }
+    `
+        : groq`
+      *[_id == "global-config"][0]{
+        frontpage -> {
+          ${pageFragment}
+        }
+      }
+    `,
       )
       .then((res) => (res?.frontpage ? { ...res.frontpage, slug } : undefined));
   } else {
